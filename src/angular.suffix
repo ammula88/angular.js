@@ -1,9 +1,0 @@
-
-  window.onload = function(){
-    try {
-      if (previousOnLoad) previousOnLoad();
-    } catch(e) {}
-    angularInit(angularJsConfig(document));
-  };
-
-})(window, document, window.onload);
