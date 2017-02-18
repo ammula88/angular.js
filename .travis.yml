@@ -17,15 +17,15 @@ env:
     - LOGS_DIR=/tmp/angular-build/logs
     - BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
 
+install:
+  - npm install
+  - npm install -g grunt-cli
 before_script:
   - mkdir -p $LOGS_DIR
   - ./lib/sauce/sauce_connect_setup.sh
-  - npm install -g grunt-cli
   - grunt package
   - ./scripts/travis/wait_for_browser_provider.sh
-
 script:
   - ./scripts/travis/build.sh
-
 after_script:
   - ./scripts/travis/print_logs.sh
